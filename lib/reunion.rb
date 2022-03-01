@@ -20,11 +20,20 @@ class Reunion
   end
 
   def breakout
-    @amount_owed = {}
+    final_owed = {}
     @activities.each do |activity|
-      @amount_owed = activity.owed
-    end
-    return @amount_owed
+       activity.owed.each do |person, money|
+#      binding.pry
+         final_owed[person] = money
+       end
+     end
+     final_owed
+
+#    @amount_owed = {}
+#    @activities.each do |activity|
+#      @amount_owed = activity.owed
+#    end
+#    return @amount_owed
   end
 
   def summary
